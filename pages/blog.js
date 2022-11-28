@@ -1,6 +1,9 @@
 import Layout from '../components/layout';
 
 const Blog = () => {
+
+  console.log('Entra en blog');
+
   return (
     <Layout
       title={'Blog'}
