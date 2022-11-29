@@ -1,27 +1,42 @@
-//import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 
 const Producto = ({ guitarra }) => {
+  
+  console.log(guitarra[0].attributes);  
 
-  console.log(guitarra[0].attributes.nombre);
   //const router = useRouter();
-  //console.log(router);
-
+  //console.log("El router es: ",router);
   return (
     <div>[url]</div>
   )
 }
 
-export const getServerSideProps = async( { query: { url } } ) => {
+export const getStaticPaths = async() => {
+  const respuesta = await fetch(`${process.env.API_URL}/guitarras`);
+  const { data } = await respuesta.json();
   
+  const paths = data.map(guitarra => ({
+    params: {
+      url: guitarra.attributes.url
+    }
+  }));
+  
+  
+  return {
+    paths,
+    fallback: false
+  }
+}
+
+export const getStaticProps = async({params: { url }}) => {
   const respuesta = await fetch(`${process.env.API_URL}/guitarras?filters[url]=${url}&populate=imagen`);
-  const { data: guitarra } = await respuesta.json();  
+  const {data: guitarras} = await respuesta.json();
 
   return {
     props: {
-      guitarra
+      guitarras
     }
   }
-
 }
 
 export default Producto

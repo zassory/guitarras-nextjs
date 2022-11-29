@@ -3,9 +3,7 @@ import Guitarra from '../components/guitarra';
 import styles from '../styles/grid.module.css';
 
 const Tienda = ({ guitarras }) => {
-
-  console.log('Las guitarras son: ', guitarras);
-  
+    
   return (
     <Layout
       title={'Tienda Virtual'}
@@ -31,9 +29,7 @@ const Tienda = ({ guitarras }) => {
 export const getServerSideProps = async() => {
 
   const respuesta = await fetch(`${process.env.API_URL}/guitarras?populate=imagen`);
-  const { data : guitarras } = await respuesta.json();
-
-  console.log('Lado del servidor');
+  const { data : guitarras } = await respuesta.json();  
 
   return {
     props: {
