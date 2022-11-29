@@ -20,7 +20,7 @@ const Guitarra = ({guitarra}) => {
           <p className={styles.descripcion}>{ descripcion }</p>
           <p className={styles.precio}>{ precio }</p>
           <Link
-            href={'/guitarras/${url}'}
+            href={`/guitarras/${url}`}
             className={styles.enlace}
           >Ver Producto
           </Link>
