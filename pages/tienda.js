@@ -3,7 +3,7 @@ import Guitarra from '../components/guitarra';
 import styles from '../styles/grid.module.css';
 
 const Tienda = ({ guitarras }) => {
-    
+      
   return (
     <Layout
       title={'Tienda Virtual'}
@@ -25,18 +25,29 @@ const Tienda = ({ guitarras }) => {
   )
 }
 
+// export const getStaticProps = async() => {
+//   const respuesta = await fetch(`${process.env.API_URL}/guitarras?populate=imagen`)
+//   const { data: guitarras } = await respuesta.json();
+
+//   return {
+//     props: {
+//       guitarras
+//     }
+//   }
+// }
+
 //Si hay que eliminar o cambiar algo se hace y no hay que hacer otro build
-export const getServerSideProps = async() => {
+// export const getServerSideProps = async() => {
 
-  const respuesta = await fetch(`${process.env.API_URL}/guitarras?populate=imagen`);
-  const { data : guitarras } = await respuesta.json();  
+//   const respuesta = await fetch(`${process.env.API_URL}/guitarras?populate=imagen`);
+//   const { data : guitarras } = await respuesta.json();  
 
-  return {
-    props: {
-      guitarras
-    }
-  }
-}
+//   return {
+//     props: {
+//       guitarras
+//     }
+//   }
+// }
 
 //Significa que será una generacion estatica
 //esta informacion no se va a estar regenerando con cada visita del usuario
