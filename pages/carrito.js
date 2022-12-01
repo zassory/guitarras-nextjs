@@ -3,7 +3,7 @@ import Layout from "../components/layout";
 import styles from "../styles/carrito.module.css";
 
 
-const carrito = ({carrito}) => {
+const carrito = ({carrito , actualizarCantidad}) => {
   return (
     <Layout
         title={'Carrito de compras'}
@@ -23,7 +23,27 @@ const carrito = ({carrito}) => {
                                 </div>
                                 <div>
                                     <p className={styles.nombre}>{producto.nombre}</p>
-                                    <p>Cantidad: {producto.cantidad}</p>
+                                    
+                                    <div className={styles.cantidad}>
+                                        <p>Cantidad:</p>
+
+                                        <select
+                                            className={styles.select}
+                                            onChange={ e => actualizarCantidad({
+                                                id: producto.id,
+                                                cantidad: e.target.value
+                                            })}
+                                            value={producto.cantidad}
+                                        >
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">6</option>
+                                        </select>
+
+                                    </div>
+
                                     <p className={styles.precio}>$<span>{producto.precio}</span></p>
                                     <p className={styles.subtotal}>Subtotal: $<span>{producto.cantidad * producto.precio}</span></p>
                                 </div>
