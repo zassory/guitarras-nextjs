@@ -19,6 +19,7 @@
 .navegacion {
     margin-top: 5rem;
     display: flex;
+    align-items: center;
     gap: 2rem;
 }
 @media (min-width: 768px) {     

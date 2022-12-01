@@ -3,6 +3,8 @@ import Guitarra from '../components/guitarra';
 import styles from '../styles/grid.module.css';
 
 const Tienda = ({ guitarras }) => {
+
+  console.log('En tienda las guitarras son: ', guitarras);
       
   return (
     <Layout
@@ -25,16 +27,16 @@ const Tienda = ({ guitarras }) => {
   )
 }
 
-// export const getStaticProps = async() => {
-//   const respuesta = await fetch(`${process.env.API_URL}/guitarras?populate=imagen`)
-//   const { data: guitarras } = await respuesta.json();
+ export const getStaticProps = async() => {
+   const respuesta = await fetch(`${process.env.API_URL}/guitarras?populate=imagen`)
+   const { data: guitarras } = await respuesta.json();
 
-//   return {
-//     props: {
-//       guitarras
-//     }
-//   }
-// }
+   return {
+     props: {
+       guitarras
+     }
+   }
+ }
 
 //Si hay que eliminar o cambiar algo se hace y no hay que hacer otro build
 // export const getServerSideProps = async() => {
