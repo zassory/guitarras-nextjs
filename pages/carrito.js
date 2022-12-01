@@ -23,6 +23,7 @@ const carrito = ({carrito}) => {
                                 </div>
                                 <div>
                                     <p className={styles.nombre}>{producto.nombre}</p>
+                                    <p>Cantidad: {producto.cantidad}</p>
                                     <p className={styles.precio}>$<span>{producto.precio}</span></p>
                                     <p className={styles.subtotal}>Subtotal: $<span>{producto.cantidad * producto.precio}</span></p>
                                 </div>
