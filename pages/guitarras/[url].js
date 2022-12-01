@@ -4,7 +4,7 @@ import Layout from "../../components/layout";
 import styles from "../../styles/guitarras.module.css";
 
 
-const Producto = ({ guitarra }) => {
+const Producto = ({ guitarra , agregarCarrito }) => {
 
 
   const [cantidad, setCantidad] = useState(0);  
@@ -27,10 +27,8 @@ const Producto = ({ guitarra }) => {
       cantidad
     }
 
-    // Pasando la información al context
-  }
-
-  console.log(cantidad);
+    agregarCarrito( guitarraSeleccionada );
+  }  
       
   return (
     <Layout
@@ -100,9 +98,7 @@ export const getStaticPaths = async() => {
 
 export const getStaticProps = async({params: { url }}) => {
   const respuesta = await fetch(`${process.env.API_URL}/guitarras?filters[url]=${url}&populate=imagen`);
-  const {data: guitarra} = await respuesta.json();
-
-  console.log('En getSaticProps');
+  const {data: guitarra} = await respuesta.json();  
 
   return {
     props: {

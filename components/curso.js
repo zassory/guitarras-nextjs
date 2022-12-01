@@ -4,7 +4,6 @@ import styles from '../styles/curso.module.css';
 const Curso = ({curso}) => {
 
   const { contenido , imagen , titulo } = curso;
-  console.log(titulo);  
 
   return (
     <section className={`${styles.curso} curso`}>

@@ -3,9 +3,9 @@ import Guitarra from '../components/guitarra';
 import styles from '../styles/grid.module.css';
 
 const Tienda = ({ guitarras }) => {
-
-  console.log('En tienda las guitarras son: ', guitarras);
-      
+  
+  
+  
   return (
     <Layout
       title={'Tienda Virtual'}

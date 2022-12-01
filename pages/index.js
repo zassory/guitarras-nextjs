@@ -6,9 +6,7 @@ import styles from "../styles/grid.module.css";
 
 
 export default function Home({guitarras,posts,curso}) {
-    
-  console.log(curso.attributes);
-
+      
   return (
     <>
       <Layout
